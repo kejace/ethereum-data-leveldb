@@ -219,6 +219,8 @@ findNonce b =
 
 ----------
 
+{-
+
 fastFindNonce::Block->IO Integer
 fastFindNonce b = do
   let (theData, _, _) = toForeignPtr $ headerHashWithoutNonce b
@@ -235,6 +237,9 @@ fastFindNonce b = do
 foreign import ccall "findNonce" c_fastFindNonce::Ptr Word8->Ptr Word8->Ptr Word8->IO Int
 --foreign import ccall "fastFindNonce" c_fastFindNonce::ForeignPtr Word8->ForeignPtr Word8->ForeignPtr Word8
 
+-}
+
+fastFindNonce = findNonce
 
 {-
 fastFindNonce::Block->Integer
@@ -246,6 +251,11 @@ fastFindNonce b =
   where
     first = headerHashWithoutNonce b
 
+    -}
+
+
+
+{-
 fastPowFunc::Block->Integer
 fastPowFunc b =
   --trace (show $ headerHashWithoutNonce b) $
@@ -255,4 +265,5 @@ fastPowFunc b =
     headerHashWithoutNonce b
     `B.append`
     sha2ByteString (nonce $ blockData b))
+
 -}
