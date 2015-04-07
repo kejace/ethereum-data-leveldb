@@ -22,6 +22,7 @@ import Blockchain.Data.RLP
 import Blockchain.SHA
 import Blockchain.Util
 
+
 newtype Address = Address Word160 deriving (Show, Eq, Ord)
 
 instance Pretty Address where
@@ -51,7 +52,7 @@ pubKey2Address (PubKey point) =
   where
     x = fromMaybe (error "getX failed in prvKey2Address") $ getX point
     y = fromMaybe (error "getY failed in prvKey2Address") $ getY point
-pubKey2Address (PubKeyU _) = error "Missing case in pubKey2Address: PubKeyU"
+--pubKey2Address (PubKeyU _) = error "Missing case in pubKey2Address: PubKeyU"
 
 
 instance RLPSerializable Address where

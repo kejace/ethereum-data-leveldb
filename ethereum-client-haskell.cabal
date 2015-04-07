@@ -37,8 +37,9 @@ library
                  , ethereum-merkle-patricia-db
                  , ethereum-rlp
                  , filepath
-                 , haskoin
-                 , leveldb-haskell
+                 , haskoin == 0.1.0.2
+                -- , leveldb-haskell
+                 , leveldb-ghcjs
                  , mtl
                  , network
                  , nibblestring
